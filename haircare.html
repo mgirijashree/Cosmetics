@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--  Tailwind CSS  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Style CSS-->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Animate Aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--CSS Stylesheet-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--Title-->
+    <title>Glowify</title>
+
+</head>
+
+<body>
+    <div class="overall ">
+
+
+        <!-- Main Container -->
+        <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md ">
+            <div class=" flex flex-col lg:flex-row items-center gap-4">
+
+                <!-- 1. Logo: Centered on mobile, Left-aligned on Desktop -->
+                <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
+                    <img src="./Assets/images/logo.png" class="h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
+                </a>
+
+                <!-- 2. Navbar Bubble -->
+                <div
+                    class=" bg-white/80 backdrop-blur-md w-full flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white shadow-sm rounded-2xl md:rounded-full border border-[#FF6FAE]">
+
+                    <!-- Search Bar: Full width on 320px, auto on larger -->
+                  <div class="relative w-full md:w-48 lg:w-64 mb-3 md:mb-0 flex items-center">
+    <span class="absolute left-3 flex items-center text-gray-400 pointer-events-none">
+        <i class="bi bi-search"></i>
+    </span>
+    <input type="text" placeholder="Search..." 
+           class="w-full rounded-full py-2 pl-10 pr-4 text-sm outline-none transition-colors border border-[#FF6FAE] placeholder-[#FF6FAE] hover:border-[#B7104D] focus:ring-2 focus:ring-[#B7104D] focus:border-[#B7104D]">
+</div>
+
+                    <!-- Mobile Menu from Flowbite -->
+                    <div class="hidden w-full md:hidden" id="navbar-menu-mobile">
+                        <ul class="flex flex-col mt-4 gap-4 border-t pt-4 font-semibold list-none ">
+                            <li><a href="index.html" class="block py-2 text-[#B7104D]">Home</a></li>
+                            <li>
+                                <button data-collapse-toggle="mobile-shop-links"
+                                    class="flex items-center justify-between w-full py-2 text-gray-600">
+                                    Shop <i class="bi bi-chevron-down text-xs"></i>
+                                </button>
+                                <ul id="mobile-shop-links" class="hidden pl-4 space-y-2 text-sm text-gray-500 pb-2">
+                                    <li><a href="skincare.html" class="block py-1 font-bold">Categories</a></li>
+                                    <li><a href="skincare.html"
+                                            class="block py-1 border-1 border-[#B7104D] bg-grey-200 hover:bg-[#FF6FAE]">Skin
+                                            Care ></a></li>
+                                    <li><a href="eyemakeup.html" class="block py-1">Eye Makeup ></a></li>
+                                    <li><a href="haircare.html" class="block py-1">Hair Care ></a></li>
+                                    <li><a href="lipsticks.html" class="block py-1">Lipsticks ></a></li>
+                                    <li><a href="fragrance.html" class="block py-1">Fragrance ></a></li>
+                                    <li><a href="nails.html" class="block py-1">Nails ></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                            <li><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Hamburger (Visible below 768px) -->
+                    <button data-collapse-toggle="navbar-menu" type="button"
+                        class="inline-flex items-center p-2 text-[#B7104D] rounded-lg md:hidden hover:bg-pink-50">
+                        <i class="bi bi-list text-2xl">Menu</i>
+                    </button>
+
+                    <!-- Desktop Navigation-->
+                    <nav class="hidden md:flex items-center gap-4 lg:gap-8 text-sm lg:text-base font-bold text-gray-700"
+                        id="navbar-menu-desktop">
+                        <a href="index.html" class="text-[#B7104D]">Home</a>
+                        <!--Dropdown for Shop menu-->
+                        <li class="list-none"><button id="dropdownShopButton" data-dropdown-toggle="dropdownShop"
+                                class="flex items-center hover:text-[#B7104D] transition">
+                                Shop <i class="bi bi-chevron-down ms-1 text-xs"></i>
+                            </button>
+                            <div id="dropdownShop"
+                                class="z-20 hidden bg-white divide-y divide-gray-100 rounded-xl shadow-lg w-44 border border-gray-100 font-normal">
+                                <ul class="list-none py-2 text-sm text-gray-700">
+                                    <li><a href="skincare.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Skin Care</a>
+                                    </li>
+                                    <li><a href="eyemakeup.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">EyeMakeup</a>
+                                    </li>
+                                    <li><a href="haircare.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Hair Care</a>
+                                    </li>
+                                    <li><a href="lipsticks.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Lipsticks</a>
+                                    </li>
+                                    <li><a href="fragrance.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Fragrance</a>
+                                    </li>
+                                    <li><a href="nails.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Nails</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="list-none"><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                        <li class="list-none"><a href="about.html" class="block py-2 text-gray-600">About</a></li>
+                        <li class="list-none"><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                    </nav>
+
+
+
+                    <!-- Mobile Menu Dropdown (Flowbite) -->
+                    <div class="hidden w-full md:hidden" id="navbar-menu">
+                        <ul class="flex flex-col mt-4 gap-2 border-t pt-4 font-semibold">
+                            <li><a href="index.html" class="block py-2 text-[#B7104D]">Home</a></li>
+                            <li><button id="mobiledropdownShopButton" data-dropdown-toggle="mobiledropdownShop"
+                                    class="flex items-center hover:text-[#B7104D] transition">
+                                    Shop <i class="bi bi-chevron-down ms-1 text-xs"></i>
+                                </button>
+                                <div id="mobiledropdownShop"
+                                    class="z-20 hidden bg-white divide-y divide-gray-100 rounded-xl shadow-lg w-44 border border-gray-100 font-normal">
+                                    <ul class="py-2 text-sm text-gray-700">
+                                        <li><a href="skincare.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Skin
+                                                Care</a>
+                                        </li>
+                                        <li><a href="eyemakeup.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Eye
+                                                Makeup</a></li>
+                                        <li><a href="haircare.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Hair
+                                                Care</a>
+                                        </li>
+                                        <li><a href="lipsticks.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Lipsticks</a>
+                                        </li>
+                                        <li><a href="fragrance.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Fragrance</a>
+                                        </li>
+                                        <li><a href="nails.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Nails</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                            <li><a href="about.html" class="block py-2 text-gray-600">About</a></li>
+                            <li><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="cart.html">
+                            <i
+                                class="bi bi-cart3 border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i></a>
+
+
+                        <i
+                            class="bi bi-heart-fill text-[#B7104D] border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i>
+
+                        <a href="signin.html"> <i
+                                class="bi bi-person border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i>
+                        </a>
+
+                    </div>
+
+
+                </div> <!-- End Bubble -->
+
+
+            </div>
+        </header>
+
+
+        <!-- MAIN LAYOUT -->
+        <div class="flex flex-col lg:flex-row gap-8 px-4 md:px-6">
+
+            <!-- LEFT: FILTER -->
+
+            <aside
+                class="w-full lg:w-1/4 bg-white p-4 md:p-6 shadow-2xl rounded-2xl border border-gray-100 h-fit lg:sticky lg:top-24">
+
+                <div class="flex items-center justify-between lg:justify-start gap-3 mb-6">
+                    <div class="flex items-center gap-3">
+                        <i class="bi bi-sliders text-xl text-gray-800"></i>
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800">Filter</h2>
+                    </div>
+
+
+                    <button data-collapse-toggle="filterMenu"
+                        class="lg:hidden p-2 text-gray-500 hover:bg-gray-100 rounded-lg">
+                        <i class="bi bi-chevron-expand"></i>
+                    </button>
+                </div>
+
+                <div id="filterMenu" class="hidden lg:block space-y-5">
+
+                    <!-- BRAND -->
+                    <div>
+                        <button data-collapse-toggle="brandContent"
+                            class="flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg font-medium">
+                            <span>Brand</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="2" d="m19 9-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="brandContent" class="hidden mt-2 px-2">
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li class="flex gap-2 brand-filter" value="Glowify"><input type="checkbox"> Glowify</li>
+                                <li class="flex gap-2 brand-filter" value="Luxe Aura"><input type="checkbox"> Luxe Aura</li>
+                                <li class="flex gap-2 brand-filter" value="velvete"><input type="checkbox"> Velvete</li>
+                                <li class="flex gap-2 brand-filter" value="elan beauty"><input type="checkbox"> Elan Beauty</li>
+                                <li class="flex gap-2 brand-filter" value="aura lips"><input type="checkbox"> AuraLips</li>
+                                <li class="flex gap-2 brand-filter" value="silkshade"><input type="checkbox"> SilkShade</li>
+                                <li class="flex gap-2 brand-filter" value="royale glow"><input type="checkbox"> Royale Glow</li>
+                                <li class="flex gap-2 brand-filter" value="diva tone"><input type="checkbox"> Diva tone</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- COLOUR -->
+                    <div>
+                        <button data-collapse-toggle="colourContent"
+                            class="flex justify-between w-full p-4 bg-gray-100 rounded-lg">
+                            <span>Colour</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="2" d="m19 9-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="colourContent" class="hidden mt-2">
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex gap-2"><input type="checkbox"> Classic Red</li>
+                                <li class="flex gap-2"><input type="checkbox"> Cherry Red</li>
+                                <li class="flex gap-2"><input type="checkbox"> Wine Red</li>
+                                <li class="flex gap-2"><input type="checkbox"> Baby Pink</li>
+                                <li class="flex gap-2"><input type="checkbox"> Fuchsia</li>
+                                <li class="flex gap-2"><input type="checkbox"> Rose Pink</li>
+                                <li class="flex gap-2"><input type="checkbox"> Peach Nude</li>
+                                <li class="flex gap-2"><input type="checkbox"> Chocolate Brown</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--DISCOUNT-->
+                    <div>
+                        <button data-collapse-toggle="discountContent"
+                            class="flex justify-between w-full p-4 bg-gray-100 rounded-lg">
+                            <span>Discount</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentDiscount" viewBox="0 0 24 24">
+                                <path stroke-width="2" d="m19 9-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="discountContent" class="hidden mt-2">
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex gap-2"><input type="checkbox"> 10 % - 20%</li>
+                                <li class="flex gap-2"><input type="checkbox"> 20% - 50%</li>
+                                <li class="flex gap-2"><input type="checkbox"> 50% & Above</li>
+                                <li class="flex gap-2"><input type="checkbox"> Buy 1 Get 1</li>
+                                <li class="flex gap-2"><input type="checkbox"> Flat 100 off</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <!-- PRICE -->
+                    <div>
+                        <button data-collapse-toggle="priceContent"
+                            class="flex justify-between w-full p-4 bg-gray-100 rounded-lg">
+                            <span>Price</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="2" d="m19 9-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="priceContent" class="hidden mt-2">
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex gap-2"><input type="checkbox"> Below ₹499</li>
+                                <li class="flex gap-2"><input type="checkbox"> ₹500 - ₹799</li>
+                                <li class="flex gap-2"><input type="checkbox"> ₹800 - ₹1099</li>
+                                <li class="flex gap-2"><input type="checkbox"> ₹1100 & Above</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            <div class="w-full lg:w-3/4">
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-2  md:text-left">Skin Care</h2>
+                <div class="border-t border-gray-400 mb-6"></div>
+
+                <!-- GRID: Responsive column logic -->
+                <!-- grid-cols-1 (mobile), sm:grid-cols-2 (tablet), lg:grid-cols-3 (desktop) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 md:px-0">
+
+                    <!-- CARD1 -->
+                  <div data-brand="Glowify" data-price="749" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <!-- Responsive Image Container -->
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (1).webp" alt="Dyson"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Loreal
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center  line-clamp-2">
+                                Loreal Paris Hyaluron Moisture 72H Moisture Filling Shampoo
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 749</span>
+                            </p>
+                        </a>
+
+                                
+                        <!-- Action Buttons: Responsive gap and padding -->
+                        <div class="flex items-center gap-2 md:gap-3 w-full mt-auto">
+                            <!-- Add to Cart Button -->
+                            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                        id: 1,
+                        name: 'Loreal Shampoo',
+                        price: 749,
+                        image: './Assets/images/HC (1).webp'
+                    })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <!-- Wishlist Icon -->
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--CARD2-->
+                    <div data-brand="Luxe Aura" data-price="500" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <!-- Responsive Image Container -->
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (2).webp" alt="Dyson"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Dyson
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center px-2 line-clamp-2">
+                                Dyson Airwrap Multi Styler & Dryer
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 500</span>
+                            </p>
+                        </a>
+
+                        <!-- Action Buttons -->
+                        <div class="flex items-center gap-3 w-full mt-auto">
+                            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                                    id: 2,
+                                    name: 'Dyson',
+                                    price: 500,
+                                    image: './Assets/images/HC (1).webp'
+                                })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: Urban -->
+                    <div data-brand="Velvete" data-price="849" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (3).webp" alt="Urban"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Urban
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center px-2 line-clamp-2">
+                                Urban Yog MakeMeeBold 7-IN-1 Multi Air Styler
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 849</span>
+                            </p>
+                        </a>
+
+                        <div class="flex items-center gap-3 w-full mt-auto">
+                            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                                id: 3,
+                                name: 'Urban',
+                                price: 849,
+                                image: './Assets/images/HC (1).webp'
+                            })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4: Bombae -->
+                    <div data-brand="Aura Lips" data-price="1199" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (4).webp" alt="Bombae"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Bombae
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center px-2 line-clamp-2">
+                                Bombae Hairess Ionic 3-IN-1 Hot Air Brush Hair Dryer
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 1199</span>
+                            </p>
+                        </a>
+
+                        <div class="flex items-center gap-3 w-full mt-auto">
+                            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                                    id: 4,
+                                    name: 'Bombae',
+                                    price: 1199,
+                                    image: './Assets/images/HC (1).webp'
+                                })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- CARD 5: Nivea -->
+                    <div data-brand="Diva Tone" data-price="299" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (5).webp" alt="Bombae"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Nivea
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center px-2 line-clamp-2">
+                                Nivea Hairess Ionic 3-IN-1 Hot Air Brush Hair Dryer
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 299</span>
+                            </p>
+                        </a>
+
+                        <div class="flex items-center gap-3 w-full mt-auto">
+                            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                                id: 5,
+                                name: 'Nivea',
+                                price: 299,
+                                image: './Assets/images/HC (1).webp'
+                            })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                 Add to Cart
+                                </button>
+                            </a>
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 6: Dhathri-->
+                    <div data-brand="SilkyShade" data-price="1599" data-aos="flip-left" data-aos-duration="2000" class="group bg-white border border-[#B7104D] rounded-xl p-4 flex flex-col items-center 
+                   shadow-lg shadow-[#FF6FAE]/20 transition-all duration-300 
+                   hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF6FAE]/40 cursor-pointer overflow-hidden">
+
+                        <a href="./skincare.html" class="w-full flex flex-col items-center flex-grow">
+                            <div class="w-full flex justify-center items-center overflow-hidden h-48 sm:h-56">
+                                <img src="./Assets/images/HC (6).webp" alt="Bombae"
+                                    class="w-40 sm:w-48 aspect-square object-contain transition-transform duration-500 group-hover:scale-110">
+                            </div>
+
+                            <h3 class="font-bold text-center mt-4 group-hover:text-[#B7104D] transition-colors text-lg">
+                                Dhathri
+                            </h3>
+
+                            <p class="text-sm text-gray-500 py-2 text-center px-2 line-clamp-2">
+                                Dhathri Shampoo
+                            </p>
+
+                            <div class="flex items-center gap-1 my-2">
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 font-medium">4.8 (214 Reviews)</span>
+                            </div>
+
+                            <p class="text-base mb-4">
+                                <span class="text-black font-bold">Price : ₹ 1599</span>
+                            </p>
+                        </a>
+
+                        <div class="flex items-center gap-3 w-full mt-auto">
+                            <a href="cart.html" class="flex-1">
+                            <button onclick="addToCart({
+                                        id: 6,
+                                        name: 'Dhathri',
+                                        price: 1599,
+                                        image: './Assets/images/HC (1).webp'
+                                    })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <button
+                                class="p-2 border-2 border-[#B7104D] rounded-full text-[#B7104D] hover:bg-[#B7104D] hover:text-white transition-colors">
+                                <i class="bi bi-heart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+  <div class="w-[85%] mx-auto py-12">
+
+    <div class="flex justify-between items-end mb-8">
+      <div>
+      
+      </div>
+      <div class="text-right">
+    <button
+          class=" text-[#B7104D] border border-[#B7104D] px-6 py-2 rounded-full font-bold hover:bg-black transition-colors duration-300 flex items-center gap-2">
+          View All <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div></div>
+
+
+
+        <!-- Signup Section -->
+        <div class="w-[90%] lg:w-[80%] mx-auto rounded-2xl overflow-hidden shadow-lg bg-animate mt-5">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 items-center">
+
+                <!-- LEFT:  -->
+
+                <div class="col-span-2 p-6 sm:p-10 text-center md:text-left">
+
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 animate-fadeInUp">
+                        Join The Inner Circle
+                    </h3>
+
+                    <p class="text-pink-100 text-sm sm:text-base mb-6 animate-fadeInUp delay-100">
+                        Sign up to receive early access to new launches, exclusive offers and skincare tips.
+                    </p>
+
+                    <!-- INPUT -->
+
+                    <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto md:mx-0 animate-fadeInUp delay-200">
+                        <input type="email" placeholder="Enter Your Email"
+                            class="w-full sm:flex-1 px-5 py-3 rounded-xl border-none outline-none text-gray-800" />
+
+                        <a href="signin.html">
+                            <button
+                                class="bg-white text-[#B7104D] font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform">
+                                Register
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT:  -->
+
+                <div class="hidden md:block h-full">
+                    <img src="./Assets/images/signup.png" alt="signup" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+        </div>
+
+
+        <br><br>
+
+  </div>
+    </div>
+
+
+
+
+
+
+
+
+
+        <!--  Wave SVG  -->
+        <div class="w-full leading-[0] bg-white">
+            <svg class="w-full h-[60px] md:h-[120px]" viewBox="0 0 1200 120" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- This path color MUST be the same as the footer background below -->
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#FF6FAE">
+                </path>
+            </svg>
+        </div>
+
+        <footer class="bg-[#FF6FAE] pb-12 pt-4 text-white">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+
+                <!--Logo-->
+                <div class="flex flex-col items-center">
+                    <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
+                        <img src="./Assets/images/logo.png"
+                            class="bg-white rounded-full h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
+                    </a>
+
+                    <p class="text-sm leading-relaxed max-w-[280px]">
+                        3rd Floor,Valasaravakkam,
+                        Chennai-600800
+                    </p>
+                </div>
+
+                <!--Links-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">Shop All</a></li>
+                        <li><a href="#" class="hover:underline">New Arrivals</a></li>
+                        <li><a href="offers.html" class="hover:underline">Offers</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Support-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">About</a></li>
+                        <li><a href="#" class="hover:underline">Contact</a></li>
+                        <li><a href="#" class="hover:underline">Terms&Consitions</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Social Media</h4>
+                    <div class="flex gap-5 mb-2 text-lg">
+
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-linkedin"></i></a>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="./Assets/js/script.js"></script>
+    <!--Flowbite-->
+    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+    <!--Animate aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

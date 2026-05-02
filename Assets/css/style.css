@@ -1,0 +1,81 @@
+.overall {
+    width: 90% !important;
+    margin:auto;
+    background-color:white;
+    font-family:'Inter';
+}
+
+@keyframes diagonalForward {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(80px, 80px); }
+}
+
+/* Moves Left and Up */
+@keyframes diagonalBackward {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-80px, -80px); }
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animatemarquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animatemarquee:hover {
+  animation-play-state: paused;
+}
+
+
+.semicircle{
+ 
+  clip-path: ellipse(110% 100% at 50% 100%);
+
+}
+
+/*signup */
+@keyframes colorChange {
+  0%, 100% { background-color: #B7104D; }
+  50% { background-color:#FF6FAE ; }     
+}
+
+.bg-animate {
+  
+  animation: colorChange 5s ease-in-out infinite;
+}
+
+
+/*semicircle*/
+
+ @keyframes swingHorizontal {
+    0%, 100% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+  }
+
+  /* Products Float  */
+  @keyframes floatVertical {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  
+  .animate-swing-horizontal {
+    animation: swayHorizontal 4s ease-in-out infinite;
+  }
+
+  .animate-float-vertical {
+    animation: floatVertical 5s ease-in-out infinite;
+  }
+
+
+
+
+
+
+

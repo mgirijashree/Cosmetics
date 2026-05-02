@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--  Tailwind CSS  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Style CSS-->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Animate Aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--CSS Stylesheet-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--Title-->
+    <title>Glowify</title>
+
+</head>
+
+<body>
+    <div class="overall ">
+
+
+        <!-- Main Container -->
+        <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md ">
+            <div class=" flex flex-col lg:flex-row items-center gap-4">
+
+                <!-- 1. Logo: Centered on mobile, Left-aligned on Desktop -->
+                <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
+                    <img src="./Assets/images/logo.png" class="h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
+                </a>
+
+                <!-- 2. Navbar Bubble -->
+                <div
+                    class=" bg-white/80 backdrop-blur-md w-full flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white shadow-sm rounded-2xl md:rounded-full border border-[#FF6FAE]">
+
+                    <!-- Search Bar: Full width on 320px, auto on larger -->
+                  <div class="relative w-full md:w-48 lg:w-64 mb-3 md:mb-0 flex items-center">
+    <span class="absolute left-3 flex items-center text-gray-400 pointer-events-none">
+        <i class="bi bi-search"></i>
+    </span>
+    <input type="text" placeholder="Search..." 
+           class="w-full rounded-full py-2 pl-10 pr-4 text-sm outline-none transition-colors border border-[#FF6FAE] placeholder-[#FF6FAE] hover:border-[#B7104D] focus:ring-2 focus:ring-[#B7104D] focus:border-[#B7104D]">
+</div>
+
+                    <!-- Mobile Menu from Flowbite -->
+                    <div class="hidden w-full md:hidden" id="navbar-menu-mobile">
+                        <ul class="flex flex-col mt-4 gap-4 border-t pt-4 font-semibold list-none ">
+                            <li><a href="index.html" class="block py-2 text-[#B7104D]">Home</a></li>
+                            <li>
+                                <button data-collapse-toggle="mobile-shop-links"
+                                    class="flex items-center justify-between w-full py-2 text-gray-600">
+                                    Shop <i class="bi bi-chevron-down text-xs"></i>
+                                </button>
+                                <ul id="mobile-shop-links" class="hidden pl-4 space-y-2 text-sm text-gray-500 pb-2">
+                                    <li><a href="skincare.html" class="block py-1 font-bold">Categories</a></li>
+                                    <li><a href="skincare.html"
+                                            class="block py-1 border-1 border-[#B7104D] bg-grey-200 hover:bg-[#FF6FAE]">Skin
+                                            Care ></a></li>
+                                    <li><a href="eyemakeup.html" class="block py-1">Eye Makeup ></a></li>
+                                    <li><a href="haircare.html" class="block py-1">Hair Care ></a></li>
+                                    <li><a href="lipsticks.html" class="block py-1">Lipsticks ></a></li>
+                                    <li><a href="fragrance.html" class="block py-1">Fragrance ></a></li>
+                                    <li><a href="nails.html" class="block py-1">Nails ></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                            <li><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Hamburger (Visible below 768px) -->
+                    <button data-collapse-toggle="navbar-menu" type="button"
+                        class="inline-flex items-center p-2 text-[#B7104D] rounded-lg md:hidden hover:bg-pink-50">
+                        <i class="bi bi-list text-2xl">Menu</i>
+                    </button>
+
+                    <!-- Desktop Navigation-->
+                    <nav class="hidden md:flex items-center gap-4 lg:gap-8 text-sm lg:text-base font-bold text-gray-700"
+                        id="navbar-menu-desktop">
+                        <a href="index.html" class="text-[#B7104D]">Home</a>
+                        <!--Dropdown for Shop menu-->
+                        <li class="list-none"><button id="dropdownShopButton" data-dropdown-toggle="dropdownShop"
+                                class="flex items-center hover:text-[#B7104D] transition">
+                                Shop <i class="bi bi-chevron-down ms-1 text-xs"></i>
+                            </button>
+                            <div id="dropdownShop"
+                                class="z-20 hidden bg-white divide-y divide-gray-100 rounded-xl shadow-lg w-44 border border-gray-100 font-normal">
+                                <ul class="list-none py-2 text-sm text-gray-700">
+                                    <li><a href="skincare.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Skin Care</a>
+                                    </li>
+                                    <li><a href="eyemakeup.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">EyeMakeup</a>
+                                    </li>
+                                    <li><a href="haircare.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Hair Care</a>
+                                    </li>
+                                    <li><a href="lipsticks.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Lipsticks</a>
+                                    </li>
+                                    <li><a href="fragrance.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Fragrance</a>
+                                    </li>
+                                    <li><a href="nails.html"
+                                            class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Nails</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="list-none"><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                        <li class="list-none"><a href="about.html" class="block py-2 text-gray-600">About</a></li>
+                        <li class="list-none"><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                    </nav>
+
+
+
+                    <!-- Mobile Menu Dropdown (Flowbite) -->
+                    <div class="hidden w-full md:hidden" id="navbar-menu">
+                        <ul class="flex flex-col mt-4 gap-2 border-t pt-4 font-semibold">
+                            <li><a href="index.html" class="block py-2 text-[#B7104D]">Home</a></li>
+                            <li><button id="mobiledropdownShopButton" data-dropdown-toggle="mobiledropdownShop"
+                                    class="flex items-center hover:text-[#B7104D] transition">
+                                    Shop <i class="bi bi-chevron-down ms-1 text-xs"></i>
+                                </button>
+                                <div id="mobiledropdownShop"
+                                    class="z-20 hidden bg-white divide-y divide-gray-100 rounded-xl shadow-lg w-44 border border-gray-100 font-normal">
+                                    <ul class="py-2 text-sm text-gray-700">
+                                        <li><a href="skincare.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Skin
+                                                Care</a>
+                                        </li>
+                                        <li><a href="eyemakeup.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Eye
+                                                Makeup</a></li>
+                                        <li><a href="haircare.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Hair
+                                                Care</a>
+                                        </li>
+                                        <li><a href="lipsticks.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Lipsticks</a>
+                                        </li>
+                                        <li><a href="fragrance.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Fragrance</a>
+                                        </li>
+                                        <li><a href="nails.html"
+                                                class="block px-4 py-2 hover:bg-pink-50 hover:text-[#B7104D]">Nails</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><a href="offers.html" class="block py-2 text-gray-600">Offers</a></li>
+                            <li><a href="about.html" class="block py-2 text-gray-600">About</a></li>
+                            <li><a href="contact.html" class="block py-2 text-gray-600">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="cart.html">
+                            <i
+                                class="bi bi-cart3 border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i></a>
+
+
+                        <i
+                            class="bi bi-heart-fill text-[#B7104D] border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i>
+
+                        <a href="signin.html"> <i
+                                class="bi bi-person border-2 rounded-full border-gray-800 text-xl p-2 hover:border-[#B7104D] hover:bg-[#F8AFC2]"></i>
+                        </a>
+
+                    </div>
+
+
+                </div> <!-- End Bubble -->
+
+
+            </div>
+        </header>
+
+<!-- Banner Container -->
+<div class="relative w-full h-[400px] overflow-hidden mt-10 mb-10">
+    
+    <!-- Background Image -->
+    <img src="./Assets/images/aboutbanner.png" 
+         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+         alt="Banner Background">
+
+    <!-- Overlay Text Box -->
+    <!-- Positioned to the left and center-aligned vertically -->
+    <div class="absolute top-1/2 left-[50px] -translate-y-1/2 bg-gray-300 p-[40px]  shadow-lg rounded-lg">
+        
+        <h2 class="text-black font-bold text-[32px] mb-[15px]">
+           The Art of Radiant Skin
+        </h2>
+        
+        <p class="text-black text-[16px] leading-[24px] mb-[25px]">
+           The legacy of timeless beauty and scientific precision,crafted for the modern connoisseur
+        </p>
+
+       
+        
+    </div>
+</div>
+
+    <!-- Story Mission Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[70vh] px-6 mt-10 mb-10">
+
+    <!-- Left Column: Image -->
+      <div class="flex flex-col items-center md:items-start  md:text-left space-y-6 p-4">
+
+        <div>
+            <h3 class="font-bold text-xl md:text-3xl text-gray-800 transition-colors hover:text-[#B7104D]">
+                Our Story
+            </h3>
+            
+            <p class="text-base text-gray-500 mt-4 mb-4 leading-relaxed max-w-lg">
+            At Glowify,beauty is more than makeup - it's confidence , self-expression, and self-love. We create high-qualify , skin-friendly cosmetics designed your natural glow.
+            Every product is crafted with care, combining modern beauty trends with premium ingredients to deliver long-lasting results.   
+            </p>
+
+               <h3 class="font-bold text-xl md:text-3xl text-gray-800 transition-colors hover:text-[#B7104D]">
+                Our Mission
+            </h3>
+            
+            <p class="text-base text-gray-500 mt-4 leading-relaxed max-w-lg">
+            To make beauty accessible, empowering and effortless for everyone . From bold lip shades to everyday essentials, 
+        our collections are designed to suit every skin tone and style.We believe thta beauty should feel comfortable,look stunning and inspire confidence</p>
+        </div>     
+    </div>
+
+    <!-- Right Column: Content -->
+     <div class="flex items-center justify-center overflow-hidden">
+        <img src="./Assets/images/mission.png" 
+             class="w-full max-w-md h-auto object-contain transition-transform duration-500 hover:scale-105" 
+             alt="exclusive">
+    </div>
+  
+</div>
+
+
+
+<section class="py-16 bg-white font-sans">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Section Title -->
+    <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Our Core Values</h2>
+
+    <!-- Cards Container -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Premium Quality -->
+      <div class="bg-[#ff4d94] text-white p-8 rounded-t-full rounded-b-xl shadow-lg flex flex-col items-center text-center">
+        <div class="mb-6 mt-4">
+          <!-- Icon Placeholder -->
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+            <img src="./Assets/images/celebration.gif">
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Premium Quality</h3>
+        <p class="text-sm leading-relaxed opacity-90">
+          We create high-performance beauty products with carefully selected, skin-loving ingredients.
+        </p>
+      </div>
+
+      <!-- Card 2: Empowered Confidence -->
+      <div class="bg-[#ff4d94] text-white p-8 rounded-t-full rounded-b-xl shadow-lg flex flex-col items-center text-center">
+        <div class="mb-6 mt-4">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner">
+            <img src="./Assets/images/celebheart.gif">
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Empowered Confidence</h3>
+        <p class="text-sm leading-relaxed opacity-90">
+          Our mission is to inspire confidence and celebrate individuality through every shade.
+        </p>
+      </div>
+
+      <!-- Card 3: Ethical Beauty -->
+      <div class="bg-[#ff4d94] text-white p-8 rounded-t-full rounded-b-xl shadow-lg flex flex-col items-center text-center">
+        <div class="mb-6 mt-4">
+          <div class="w-12 h-12 flex items-center justify-center">
+            <img src="./Assets/images/celebleaf.gif">
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Ethical Beauty</h3>
+        <p class="text-sm leading-relaxed opacity-90">
+          Cruelty-free, responsible, and committed to sustainable practices.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!--Founder Section -->
+<div class="grid grid-cols-1 md:grid-cols-2  items-center  mt-10 mb-10">
+
+    <!-- Left Column: Image -->
+      <div class="flex items-center justify-center overflow-hidden">
+        <img src="./Assets/images/founder.avif" 
+             class=" rounded-2xl max-w-md h-[400px] w-[350px] object-contain transition-transform duration-500 hover:scale-105" 
+             alt="exclusive">
+    </div>
+    
+     <!-- Right Column: Content -->
+    <div class="flex flex-col items-center md:items-start  md:text-left space-y-6 p-4">
+
+        <div>
+            <h3 class="font-bold text-xl md:text-3xl text-gray-800 transition-colors hover:text-[#B7104D]">
+                Meet the Founder
+            </h3>
+            
+            <p class="text-base text-gray-500 mt-4 mb-4 leading-relaxed ">
+            Behind every shade,threr is a story<br>
+        Elena started this brand with a simple vision -to createbeauty products that combine luxury,
+       performance and confidence. With a passion for skincare and makeup innovation, she believed that every woman deserves products that enhance natural beauty without compromise.<br>
+    To desing high-quality , cruely-free cosmetics that empower individuals to express themselves fearlessly.<br>
+Her dedication to excellence, details  and modern  beauty trends continues to shape every product we create.</p>
+
+           </div>     
+    </div>
+</div>
+   
+     
+   <!--Commit box-->
+
+            <div class="items-center mt-10 h-72 md:h-80 overflow-hidden rounded-2xl text-center border-2 bg-[#F8AFC2]/50 border-[#B7104D]">
+
+          
+        <div>
+            <h3 class="font-bold text-xl mt-5 md:text-2xl text-gray-800 transition-colors hover:text-[#B7104D]">
+                Our Unwavering Commitment
+            </h3>
+            
+            <p class="text-base text-gray-500 mt-4 mb-4 leading-relaxed ">
+            At our core, we are dedicated to delivering beauty without compromise.<br>
+        We are committed to creating high-quality , skin-friendly products that combine innovation , safely and performance.<br>
+    Every formula isn thoughtfully developed to ensure comfort, long-lasting wear and visible results. 
+<br>
+<button class="px-5 m-2 bg-[#B7104D]/70 text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-all transform active:scale-95 shadow-lg">
+               View Sustainability report
+            </button>
+</div>     
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--  Wave SVG  -->
+        <div class="w-full leading-[0] bg-white">
+            <svg class="w-full h-[60px] md:h-[120px]" viewBox="0 0 1200 120" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- This path color MUST be the same as the footer background below -->
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#FF6FAE">
+                </path>
+            </svg>
+        </div>
+
+        <footer class="bg-[#FF6FAE] pb-12 pt-4 text-white">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+
+                <!--Logo-->
+                <div class="flex flex-col items-center">
+                    <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
+                        <img src="./Assets/images/logo.png"
+                            class="bg-white rounded-full h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
+                    </a>
+
+                    <p class="text-sm leading-relaxed max-w-[280px]">
+                        3rd Floor,Valasaravakkam,
+                        Chennai-600800
+                    </p>
+                </div>
+
+                <!--Links-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">Shop All</a></li>
+                        <li><a href="#" class="hover:underline">New Arrivals</a></li>
+                        <li><a href="offers.html" class="hover:underline">Offers</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Support-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">About</a></li>
+                        <li><a href="#" class="hover:underline">Contact</a></li>
+                        <li><a href="#" class="hover:underline">Terms&Consitions</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Social Media</h4>
+                    <div class="flex gap-5 mb-2 text-lg">
+
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-linkedin"></i></a>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="./Assets/js/script.js"></script>
+    <!--Flowbite-->
+    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+    <!--Animate aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
