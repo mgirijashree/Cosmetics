@@ -137,73 +137,55 @@ function saveCart(cart) {
 
 // Add to cart
 function addToCart(product) {
-    let cart = getCart();
+    // 1. Get existing cart from localStorage or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Check if item already exists
-    let existing = cart.find(item => item.id === product.id);
+    // 2. Check if product already exists in cart
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);
 
-    if (existing) {
-        existing.quantity += 1;
+    if (existingProductIndex > -1) {
+        // If it exists, increase quantity
+        cart[existingProductIndex].quantity += 1;
     } else {
+        // If new, add product with quantity 1
         product.quantity = 1;
         cart.push(product);
     }
 
-    saveCart(cart);
+    // 3. Save updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
 
-    alert("Item added to cart ");
+    // Optional: Alert the user or redirect immediately
+    console.log('Product added to cart:', product.name);
 }
-
 
 
 //Display Cart Items
-function displayCart() {
-    let cart = getCart();
-    let container = document.getElementById("cartItems");
-    let total = 0;
+function loadCart() {
+    // Pull the data string and convert it back into a JavaScript array
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cart-items-container');
 
-    if (!container) return;
+    if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty</p>";
+        return;
+    }
 
-    container.innerHTML = "";
-
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-
-        container.innerHTML += `
-            <div class="flex items-center gap-4 border p-4 rounded-lg">
-                <img src="${item.image}" class="w-20 h-20 object-contain">
-
-                <div class="flex-1">
-                    <h3 class="font-bold">${item.name}</h3>
-                    <p>₹${item.price}</p>
-                    <p>Qty: ${item.quantity}</p>
-                </div>
-
-                <button onclick="removeItem(${item.id})"
-                    class="bg-red-500 text-white px-3 py-1 rounded">
-                    Remove
-                </button>
+    // Loop through the items and generate the HTML
+    container.innerHTML = cart.map(item => `
+        <div class="flex justify-between border-b py-4">
+            <img src="${item.image}" class="w-20 h-20">
+            <div>
+                <h3 class="font-bold">${item.name}</h3>
+                <p>₹${item.price}</p>
             </div>
-        `;
-    });
-
-    document.getElementById("total").innerText = "Total: ₹ " + total;
+            <p>Quantity: ${item.quantity}</p>
+        </div>
+    `).join('');
 }
 
-
-//remove cart item
-function removeItem(id) {
-    let cart = getCart();
-    cart = cart.filter(item => item.id !== id);
-    saveCart(cart);
-    displayCart();
-}
-
-
-
-//auto load cart
-
-displayCart();
+// Call this when the page opens
+window.onload = loadCart;
 
 //filter
 document.addEventListener('DOMContentLoaded', () => {

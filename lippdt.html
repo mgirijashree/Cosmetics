@@ -46,16 +46,15 @@
                 <div
                     class=" bg-white/80 backdrop-blur-md w-full flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white shadow-sm rounded-2xl md:rounded-full border border-[#FF6FAE]">
 
-                    <!-- Search Bar: Full width on 320px, auto on larger -->
-                    <div class="relative w-full md:w-48 lg:w-64 mb-3 md:mb-0">
-                        <span class="absolute inset-y-0 mt-4 left-3 flex items-center text-gray-400">
-                            <i class="bi bi-search"></i>
-                        </span>
-                        <input type="text" placeholder="Search..." class="w-full rounded-full py-2 mt-4 pl-10 pr-4 text-sm outline-none transition-colors
-           border border-[#FF6FAE] placeholder-[#FF6FAE] 
-           hover:border-[#B7104D] 
-           focus:ring-2 focus:ring-[#B7104D] focus:border-[#B7104D]">
-                    </div>
+                     <!-- Search Bar: Full width on 320px, auto on larger -->
+                  <div class="relative w-full md:w-48 lg:w-64 mb-3 md:mb-0 flex items-center">
+    <span class="absolute left-3 flex items-center text-gray-400 pointer-events-none">
+        <i class="bi bi-search"></i>
+    </span>
+    <input type="text" placeholder="Search..." 
+           class="w-full rounded-full py-2 pl-10 pr-4 text-sm outline-none transition-colors border border-[#FF6FAE] placeholder-[#FF6FAE] hover:border-[#B7104D] focus:ring-2 focus:ring-[#B7104D] focus:border-[#B7104D]">
+</div>
+
 
                     <!-- Mobile Menu from Flowbite -->
                     <div class="hidden w-full md:hidden" id="navbar-menu">
@@ -193,132 +192,255 @@
         </header>
 
 
-        <!--CART-->
-      <div class="min-h-screen bg-gray-50 p-4 md:p-10">
-    <h1 class="text-2xl font-bold text-gray-800 mb-2">Your Cart</h1>
-    <p class="text-gray-500 mb-8" id="cart-count">Review your selection before Checkout (0 items)</p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <!-- Left: Product List -->
-        <div class="lg:col-span-2 space-y-6" id="cart-items-container">
-            <!-- JavaScript will populate items here -->
-        </div>
 
-        <!-- Right: Order Summary Card -->
-        <div class="lg:col-span-1">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-10">
-                <h2 class="text-xl font-bold mb-6">Order Summary</h2>
-                <div class="space-y-4 text-gray-600">
-                    <div class="flex justify-between">
-                        <span>Subtotal</span>
-                        <span id="subtotal">₹0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Estimated Shipping</span>
-                        <span id="shipping">₹0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>GST</span>
-                        <span id="gst">₹0</span>
-                    </div>
-                    <hr class="my-4">
-                    <div class="flex justify-between text-lg font-bold text-gray-900">
-                        <span>Total</span>
-                        <span id="final-total">₹0</span>
-                    </div>
-                </div>
-                <a href="./checkout.html"><button class="w-full mt-8 bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition shadow-lg shadow-pink-200">
-                    Proceed to Checkout
-                </button></a>
-            </div>
-        </div>
+        <div class="max-w-6xl mx-auto p-6 md:p-12 font-sans">
+  <!-- Top Section: Image and Details -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    
+    <!-- Left: Product Image -->
+    <div class="rounded-2xl overflow-hidden shadow-sm">
+      <img src="./Assets/images/pdtlip.png" alt="Cream Luxe Finish Lipstick" class="w-full h-auto object-cover">
     </div>
+
+    <!-- Right: Product Information -->
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold text-gray-800">Cream Luxe Finish – Lipstick</h1>
+      
+      <!-- Rating -->
+      <div class="flex items-center gap-2 text-sm text-gray-600">
+        <span class="text-yellow-400">★</span>
+        <span>4.8 (214 Reviews)</span>
+      </div>
+
+      <p class="font-bold text-gray-900">Luxury. Comfort. Timeless Color.</p>
+      
+      <p class="text-gray-600 leading-relaxed">
+        Glowify Cream Luxe Finish Lipstick delivers rich, creamy color with a smooth satin glow. 
+        Designed for women who love elegance without dryness, this formula glides effortlessly 
+        and keeps your lips soft, hydrated, and radiant all day.
+      </p>
+
+      <p class="text-xl font-bold text-pink-600">Price: ₹749</p>
+
+      <!-- Shade Selection -->
+      <div class="space-y-3">
+        <span class="block font-semibold text-gray-800">Shade</span>
+        <div class="flex gap-3">
+          <button class="w-8 h-8 rounded-full bg-pink-300 ring-2 ring-pink-500 ring-offset-2"></button>
+          <button class="w-8 h-8 rounded-full bg-red-600"></button>
+          <button class="w-8 h-8 rounded-full bg-orange-400"></button>
+          <button class="w-8 h-8 rounded-full bg-red-400"></button>
+          <button class="w-8 h-8 rounded-full bg-stone-800"></button>
+        </div>
+      </div>
+
+      <!-- Actions: Quantity and Add to Cart -->
+      <div class="flex items-center gap-4 pt-4">
+        <div class="flex items-center bg-gray-100 rounded-lg px-4 py-2 gap-4">
+          <button class="text-gray-500 hover:text-black">-</button>
+          <span class="font-semibold">1</span>
+          <button class="text-gray-500 hover:text-black">+</button>
+        </div>
+            <a href="cart.html" class="flex-1">
+                                <button onclick="addToCart({
+                        id: 1,
+                        name: 'Luxe',
+                        price: 749,
+                        image: './Assets/images/L1.png'
+                    })" class="w-full bg-[#B7104D] text-white py-2 rounded-lg font-semibold hover:bg-[#8e0d3c] transition-colors">
+                                    Add to Cart
+                                </button>
+                            </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Tabs -->
+  <div class="mt-16 border-b border-gray-200">
+    <div class="flex gap-12">
+      <button class="pb-4 text-pink-600 border-b-2 border-pink-600 font-bold">Product Description</button>
+      <button class="pb-4 text-gray-500 hover:text-gray-800 font-bold transition">How to Use</button>
+      <button class="pb-4 text-gray-500 hover:text-gray-800 font-bold transition">Benifits</button>
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="mt-8 space-y-4">
+    <p class="font-bold text-gray-900">Luxury. Comfort. Timeless Color.</p>
+    <p > Glowify Cream Luxe Finish Lipstick delivers rich, creamy colour with a smooth satin glow. Designed for woman who love elegance without dryness, this formula glides effortlessly and keeps your Lips
+        soft,hydrated and radiant all day.<br>
+        Perfect for everyday sophistication or evening glam.
+    </p>
+    <p class="font-bold text-gray-900">Product Details.</p>
+    <p>
+        <li>Net Weight :3.5g</li>
+        <li>Finish:Cream Luxe(Satin Glow)</li>
+        <li>Skin Type:Suitable for All      </li>
+        <li>Dermatologically tested</li>
+    </p>
+
+  </div>
+
+  
 </div>
+
+
+
+<section class="max-w-7xl mx-auto px-4 py-12">
+  
+  <h2 class="text-2xl font-bold text-gray-800 mb-8">You may also Like</h2>
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    
+    <!--  Card 1 -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col items-center transition-transform hover:scale-105">
+      <div class="w-full h-48 bg-pink-100 rounded-xl overflow-hidden mb-4">
+        <img src="./Assets/images/like1.webp" data-aos="flip-right" alt="Precision Lip Liner" class="w-full h-full object-cover">
+      </div>
+      <h3 class="text-lg font-bold text-gray-900 mb-6">Precision Lip Liner</h3>
+      <button class="w-full bg-[#e91e63] text-white py-3 rounded-xl font-semibold hover:bg-[#d81b60] shadow-md transition-colors">
+        Shop Now
+      </button>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--  Wave SVG  -->
-    <div class="w-full leading-[0] bg-white">
-        <svg class="w-full h-[60px] md:h-[120px]" viewBox="0 0 1200 120" preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <!-- This path color MUST be the same as the footer background below -->
-            <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                fill="#FF6FAE">
-            </path>
-        </svg>
+    <!--  Card 2 -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col items-center transition-transform hover:scale-105">
+      <div class="w-full h-48 bg-pink-50 rounded-xl overflow-hidden mb-4">
+        <img src="./Assets/images/list2.jpg" data-aos="flip-right" alt="Dewy oil Lip" class="w-full h-full object-cover">
+      </div>
+      <h3 class="text-lg font-bold text-gray-900 mb-6">Dewy oil Lip</h3>
+      <button class="w-full bg-[#e91e63] text-white py-3 rounded-xl font-semibold hover:bg-[#d81b60] shadow-md transition-colors">
+        Shop Now
+      </button>
     </div>
 
+    <!--  Card 3 -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col items-center transition-transform hover:scale-105">
+      <div class="w-full h-48 bg-pink-100 rounded-xl overflow-hidden mb-4">
+        <img src="./Assets/images/list3.avif" data-aos="flip-right" alt="Luminous Highlighter" class="w-full h-full object-cover">
+      </div>
+      <h3 class="text-lg font-bold text-gray-900 mb-6">Luminous Highlighter</h3>
+      <button class="w-full bg-[#e91e63] text-white py-3 rounded-xl font-semibold hover:bg-[#d81b60] shadow-md transition-colors">
+        Shop Now
+      </button>
+    </div>
 
-    <footer class="bg-[#FF6FAE] pb-12 pt-4 text-white">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+    <!--  Card 4 -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col items-center transition-transform hover:scale-105">
+      <div class="w-full h-48 bg-pink-50 rounded-xl overflow-hidden mb-4">
+        <img src="./Assets/images/list4.webp" data-aos="flip-right" alt="Glow Mist Spray" class="w-full h-full object-cover">
+      </div>
+      <h3 class="text-lg font-bold text-gray-900 mb-6">Glow Mist Spray</h3>
+      <button class="w-full bg-[#e91e63] text-white py-3 rounded-xl font-semibold hover:bg-[#d81b60] shadow-md transition-colors">
+        Shop Now
+      </button>
+    </div>
 
-            <!--Logo-->
-            <div class="flex flex-col items-center">
-                <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
-                    <img src="./Assets/images/logo.png"
-                        class="bg-white rounded-full h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
-                </a>
+  </div>
+</section>
 
-                <p class="text-sm leading-relaxed max-w-[280px]">
-                    3rd Floor,Valasaravakkam,
-                    Chennai-600800
-                </p>
-            </div>
 
-            <!--Links-->
-            <div class="flex flex-col items-center">
-                <h4 class="text-2xl font-bold mb-4">Quick Links</h4>
-                <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="hover:underline">Shop All</a></li>
-                    <li><a href="#" class="hover:underline">New Arrivals</a></li>
-                    <li><a href="offers.html" class="hover:underline">Offers</a></li>
 
-                </ul>
-            </div>
 
-            <!-- Support-->
-            <div class="flex flex-col items-center">
-                <h4 class="text-2xl font-bold mb-4">Support</h4>
-                <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="hover:underline">About</a></li>
-                    <li><a href="#" class="hover:underline">Contact</a></li>
-                    <li><a href="#" class="hover:underline">Terms&Consitions</a></li>
-                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                </ul>
-            </div>
 
-            <div class="flex flex-col items-center">
-                <h4 class="text-2xl font-bold mb-4">Social Media</h4>
-                <div class="flex gap-5 mb-2 text-lg">
 
-                    <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-linkedin"></i></a>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--  Wave SVG  -->
+        <div class="w-full leading-[0] bg-white">
+            <svg class="w-full h-[60px] md:h-[120px]" viewBox="0 0 1200 120" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- This path color MUST be the same as the footer background below -->
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#FF6FAE">
+                </path>
+            </svg>
+        </div>
+
+        <footer class="bg-[#FF6FAE] pb-12 pt-4 text-white">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+
+                <!--Logo-->
+                <div class="flex flex-col items-center">
+                    <a href="index.html" class="w-full lg:w-auto flex justify-center lg:block animate-float-vertical">
+                        <img src="./Assets/images/logo.png"
+                            class="bg-white rounded-full h-20 sm:h-24 lg:h-32 object-contain" alt="Glowify Logo">
+                    </a>
+
+                    <p class="text-sm leading-relaxed max-w-[280px]">
+                        3rd Floor,Valasaravakkam,
+                        Chennai-600800
+                    </p>
                 </div>
 
+                <!--Links-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">Shop All</a></li>
+                        <li><a href="#" class="hover:underline">New Arrivals</a></li>
+                        <li><a href="offers.html" class="hover:underline">Offers</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Support-->
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:underline">About</a></li>
+                        <li><a href="#" class="hover:underline">Contact</a></li>
+                        <li><a href="#" class="hover:underline">Terms&Consitions</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <h4 class="text-2xl font-bold mb-4">Social Media</h4>
+                    <div class="flex gap-5 mb-2 text-lg">
+
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="hover:text-[#1796A5]"><i class="bi bi-linkedin"></i></a>
+
+                    </div>
 
 
+
+                </div>
             </div>
-    </footer>
+        </footer>
 
 
 
